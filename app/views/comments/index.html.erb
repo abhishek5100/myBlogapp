@@ -1,0 +1,18 @@
+<h1>comment Data</h1>
+
+<ol>
+<% @comment.each do |comment| %>
+    
+    <li>
+      <%= comment.name%>
+    </li>
+   
+  <li>
+  <%= comment.blog.tittle%>
+</li>
+  <%= link_to "Delete", comment_path(comment), method: :delete, data: { turbo_method: :delete, confirm: "Are you sure?" } %>
+  <%= link_to "Edit",   edit_comment_path(comment) %>
+
+  <% end %>
+
+</ol>

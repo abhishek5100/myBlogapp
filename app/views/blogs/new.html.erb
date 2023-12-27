@@ -1,0 +1,32 @@
+<h1>my form</h1>
+<button>
+<%= link_to "show blog",  blogs_path %></button>
+
+<%= form_with model: @blog do |form|%>
+    <div>
+    <%= form.label :Tittle %><br>
+    <%= form.text_field :tittle %>
+  </div>
+
+  <div>
+    <%= form.label :Discription %><br>
+    <%= form.text_field :discription %>
+  </div>
+
+  <div>
+  <%= form.label :Heading %><br>
+  <%= form.text_field :heading %>
+</div>
+
+<%= form.file_field :avatar %>
+
+<div >
+<%= form.label :Author_id%>
+<%= form.collection_select :author_id, Author.all, :id, :email, {prompt: "Select a course"} %>
+</div>
+
+        <div>
+         <button> <%= form.submit %></button>
+        </div>
+
+    <% end %>

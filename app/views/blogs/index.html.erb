@@ -1,0 +1,24 @@
+<% if author_signed_in? %> 
+ <div> Welcome <%= current_author.email %> </div> 
+  <%= button_to "Sign out", destroy_author_session_path, method: :delete %> 
+<% else %>
+  <%= button_to "Sign in", new_author_session_path %> 
+<% end %>
+
+
+<h1>our blogs lists</h1>
+<button><%= link_to "create new blog",  new_blog_path %></button>
+
+<% @blogs.each do |blog|%>
+<ol>
+<li><%= blog.tittle%></li>
+<li><%= blog.discription%></li>
+<li><%= blog.heading%></li>
+<li><%= blog.author.email%></li>
+<li><%= image_tag(blog.avatar) %></li>
+
+</ol>
+<button><%= link_to "Delete", blog_path(blog), method: :delete, data: { turbo_method: :delete, confirm: "Are you sure?" } %></button>
+<button><%= link_to "Edit",   edit_blog_path(blog) %>
+</button>
+<% end %>

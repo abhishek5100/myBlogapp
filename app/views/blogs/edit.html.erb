@@ -1,0 +1,26 @@
+<h1>Edit form</h1>
+
+<%= link_to "show blog",  blogs_path %>
+
+<%= form_with model: @blog do |form|%>
+        <div>
+          <%= form.label :Tittle %><br>
+          <%= form.text_field :tittle %>
+        </div>
+      
+        <div>
+          <%= form.label :Discription %><br>
+          <%= form.text_field :discription %>
+        </div>
+
+        <div>
+        <%= form.label :Heading %><br>
+        <%= form.text_field :heading %>
+      </div>
+      <%= form.file_field :avatar %>
+
+        <div>
+          <%= form.submit %>
+        </div>
+
+    <% end %>
