@@ -13,6 +13,8 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
 
   if @blog.save
+    BlogJob.set(wait: 1.minute).perform_later(@blog)
+
     redirect_to @blog
  else
     render :new

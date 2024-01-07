@@ -27,7 +27,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -47,7 +47,16 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+    gem 'rspec-sonarqube-formatter', '1.5.0'
+    gem 'rspec-rails', '5.1.2'
+    gem 'simplecov', '0.17.0'
+    gem 'factory_bot_rails'
+    gem 'shoulda-matchers', '~> 5.0'
+    gem 'faker'
+    gem 'dotenv-rails'
+    gem 'rails-controller-testing'
 end
+
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -67,3 +76,4 @@ group :test do
 end
   
     gem "devise"
+    gem "sidekiq"
